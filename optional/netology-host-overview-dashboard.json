@@ -1,0 +1,681 @@
+{
+  "id": "2",
+  "cells": [
+    {
+      "i": "4e943903-49ba-4179-aae7-c93cdb296bcc",
+      "x": 0,
+      "y": 0,
+      "w": 6,
+      "h": 4,
+      "name": "CPU usage_system",
+      "queries": [
+        {
+          "query": "SELECT mean(\"usage_system\") AS \"usage_system\" FROM \"telegraf\".\"autogen\".\"cpu\" WHERE time > :dashboardTime: AND \"cpu\"='cpu-total' AND \"host\"='telegraf-getting-started' GROUP BY time(:interval:) FILL(null)",
+          "queryConfig": {
+            "database": "telegraf",
+            "measurement": "cpu",
+            "retentionPolicy": "autogen",
+            "fields": [
+              {
+                "value": "mean",
+                "type": "func",
+                "alias": "usage_system",
+                "args": [
+                  {
+                    "value": "usage_system",
+                    "type": "field",
+                    "alias": ""
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "cpu": [
+                "cpu-total"
+              ],
+              "host": [
+                "telegraf-getting-started"
+              ]
+            },
+            "groupBy": {
+              "time": "auto",
+              "tags": []
+            },
+            "areTagsAccepted": true,
+            "fill": "null",
+            "rawText": null,
+            "range": null,
+            "shifts": null
+          },
+          "source": "/chronograf/v1/sources/10000",
+          "type": "influxql"
+        }
+      ],
+      "axes": {
+        "x": {
+          "bounds": [
+            "",
+            ""
+          ],
+          "label": "",
+          "prefix": "",
+          "suffix": "",
+          "base": "10",
+          "scale": "linear"
+        },
+        "y": {
+          "bounds": [
+            "",
+            ""
+          ],
+          "label": "%",
+          "prefix": "",
+          "suffix": "",
+          "base": "10",
+          "scale": "linear"
+        },
+        "y2": {
+          "bounds": [
+            "",
+            ""
+          ],
+          "label": "",
+          "prefix": "",
+          "suffix": "",
+          "base": "",
+          "scale": ""
+        }
+      },
+      "type": "line",
+      "colors": [],
+      "legend": {},
+      "tableOptions": {
+        "verticalTimeAxis": false,
+        "sortBy": {
+          "internalName": "",
+          "displayName": "",
+          "visible": false
+        },
+        "wrapping": "",
+        "fixFirstColumn": false
+      },
+      "fieldOptions": null,
+      "timeFormat": "",
+      "decimalPlaces": {
+        "isEnforced": false,
+        "digits": 0
+      },
+      "note": "",
+      "noteVisibility": "default",
+      "links": {
+        "self": "/chronograf/v1/dashboards/2/cells/4e943903-49ba-4179-aae7-c93cdb296bcc"
+      }
+    },
+    {
+      "i": "818dffb0-3f3e-401a-9470-97865ed56998",
+      "x": 6,
+      "y": 0,
+      "w": 6,
+      "h": 4,
+      "name": "RAM used percent",
+      "queries": [
+        {
+          "query": "SELECT mean(\"used_percent\") AS \"used_percent\" FROM \"telegraf\".\"autogen\".\"mem\" WHERE time > :dashboardTime: AND \"host\"='telegraf-getting-started' GROUP BY time(:interval:) FILL(null)",
+          "queryConfig": {
+            "database": "telegraf",
+            "measurement": "mem",
+            "retentionPolicy": "autogen",
+            "fields": [
+              {
+                "value": "mean",
+                "type": "func",
+                "alias": "used_percent",
+                "args": [
+                  {
+                    "value": "used_percent",
+                    "type": "field",
+                    "alias": ""
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "host": [
+                "telegraf-getting-started"
+              ]
+            },
+            "groupBy": {
+              "time": "auto",
+              "tags": []
+            },
+            "areTagsAccepted": true,
+            "fill": "null",
+            "rawText": null,
+            "range": null,
+            "shifts": null
+          },
+          "source": "/chronograf/v1/sources/10000",
+          "type": "influxql"
+        }
+      ],
+      "axes": {
+        "x": {
+          "bounds": [
+            "",
+            ""
+          ],
+          "label": "",
+          "prefix": "",
+          "suffix": "",
+          "base": "10",
+          "scale": "linear"
+        },
+        "y": {
+          "bounds": [
+            "0",
+            "100"
+          ],
+          "label": "%",
+          "prefix": "",
+          "suffix": "",
+          "base": "10",
+          "scale": "linear"
+        },
+        "y2": {
+          "bounds": [
+            "",
+            ""
+          ],
+          "label": "",
+          "prefix": "",
+          "suffix": "",
+          "base": "",
+          "scale": ""
+        }
+      },
+      "type": "line",
+      "colors": [],
+      "legend": {},
+      "tableOptions": {
+        "verticalTimeAxis": false,
+        "sortBy": {
+          "internalName": "",
+          "displayName": "",
+          "visible": false
+        },
+        "wrapping": "",
+        "fixFirstColumn": false
+      },
+      "fieldOptions": null,
+      "timeFormat": "",
+      "decimalPlaces": {
+        "isEnforced": false,
+        "digits": 0
+      },
+      "note": "",
+      "noteVisibility": "default",
+      "links": {
+        "self": "/chronograf/v1/dashboards/2/cells/818dffb0-3f3e-401a-9470-97865ed56998"
+      }
+    },
+    {
+      "i": "2e0cf32f-1bc3-442d-9071-7111ec9e99e3",
+      "x": 0,
+      "y": 4,
+      "w": 6,
+      "h": 4,
+      "name": "Disk used percent (sda2)",
+      "queries": [
+        {
+          "query": "SELECT mean(\"used_percent\") AS \"used_percent\" FROM \"telegraf\".\"autogen\".\"disk\" WHERE time > :dashboardTime: AND \"host\"='telegraf-getting-started' AND \"device\"='sda2' GROUP BY time(:interval:) FILL(null)",
+          "queryConfig": {
+            "database": "telegraf",
+            "measurement": "disk",
+            "retentionPolicy": "autogen",
+            "fields": [
+              {
+                "value": "mean",
+                "type": "func",
+                "alias": "used_percent",
+                "args": [
+                  {
+                    "value": "used_percent",
+                    "type": "field",
+                    "alias": ""
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "device": [
+                "sda2"
+              ],
+              "host": [
+                "telegraf-getting-started"
+              ]
+            },
+            "groupBy": {
+              "time": "auto",
+              "tags": []
+            },
+            "areTagsAccepted": true,
+            "fill": "null",
+            "rawText": null,
+            "range": null,
+            "shifts": null
+          },
+          "source": "/chronograf/v1/sources/10000",
+          "type": "influxql"
+        }
+      ],
+      "axes": {
+        "x": {
+          "bounds": [
+            "",
+            ""
+          ],
+          "label": "",
+          "prefix": "",
+          "suffix": "",
+          "base": "10",
+          "scale": "linear"
+        },
+        "y": {
+          "bounds": [
+            "0",
+            "100"
+          ],
+          "label": "%",
+          "prefix": "",
+          "suffix": "",
+          "base": "10",
+          "scale": "linear"
+        },
+        "y2": {
+          "bounds": [
+            "",
+            ""
+          ],
+          "label": "",
+          "prefix": "",
+          "suffix": "",
+          "base": "",
+          "scale": ""
+        }
+      },
+      "type": "line",
+      "colors": [],
+      "legend": {},
+      "tableOptions": {
+        "verticalTimeAxis": false,
+        "sortBy": {
+          "internalName": "",
+          "displayName": "",
+          "visible": false
+        },
+        "wrapping": "",
+        "fixFirstColumn": false
+      },
+      "fieldOptions": null,
+      "timeFormat": "",
+      "decimalPlaces": {
+        "isEnforced": false,
+        "digits": 0
+      },
+      "note": "",
+      "noteVisibility": "default",
+      "links": {
+        "self": "/chronograf/v1/dashboards/2/cells/2e0cf32f-1bc3-442d-9071-7111ec9e99e3"
+      }
+    },
+    {
+      "i": "c2b9050f-a203-4904-932c-7dfdf485e3bf",
+      "x": 6,
+      "y": 4,
+      "w": 6,
+      "h": 4,
+      "name": "Docker containers running",
+      "queries": [
+        {
+          "query": "SELECT mean(\"n_containers_running\") AS \"running\" FROM \"telegraf\".\"autogen\".\"docker\" WHERE time > :dashboardTime: GROUP BY time(:interval:) FILL(null)",
+          "queryConfig": {
+            "database": "telegraf",
+            "measurement": "docker",
+            "retentionPolicy": "autogen",
+            "fields": [
+              {
+                "value": "mean",
+                "type": "func",
+                "alias": "running",
+                "args": [
+                  {
+                    "value": "n_containers_running",
+                    "type": "field",
+                    "alias": ""
+                  }
+                ]
+              }
+            ],
+            "tags": {},
+            "groupBy": {
+              "time": "auto",
+              "tags": []
+            },
+            "areTagsAccepted": false,
+            "fill": "null",
+            "rawText": null,
+            "range": null,
+            "shifts": null
+          },
+          "source": "/chronograf/v1/sources/10000",
+          "type": "influxql"
+        }
+      ],
+      "axes": {
+        "x": {
+          "bounds": [
+            "",
+            ""
+          ],
+          "label": "",
+          "prefix": "",
+          "suffix": "",
+          "base": "10",
+          "scale": "linear"
+        },
+        "y": {
+          "bounds": [
+            "",
+            ""
+          ],
+          "label": "containers",
+          "prefix": "",
+          "suffix": "",
+          "base": "10",
+          "scale": "linear"
+        },
+        "y2": {
+          "bounds": [
+            "",
+            ""
+          ],
+          "label": "",
+          "prefix": "",
+          "suffix": "",
+          "base": "",
+          "scale": ""
+        }
+      },
+      "type": "line",
+      "colors": [],
+      "legend": {},
+      "tableOptions": {
+        "verticalTimeAxis": false,
+        "sortBy": {
+          "internalName": "",
+          "displayName": "",
+          "visible": false
+        },
+        "wrapping": "",
+        "fixFirstColumn": false
+      },
+      "fieldOptions": null,
+      "timeFormat": "",
+      "decimalPlaces": {
+        "isEnforced": false,
+        "digits": 0
+      },
+      "note": "",
+      "noteVisibility": "default",
+      "links": {
+        "self": "/chronograf/v1/dashboards/2/cells/c2b9050f-a203-4904-932c-7dfdf485e3bf"
+      }
+    },
+    {
+      "i": "437a77e5-faa0-4fa9-8e92-7207d62fcd83",
+      "x": 0,
+      "y": 8,
+      "w": 6,
+      "h": 4,
+      "name": "Uptime (seconds)",
+      "queries": [
+        {
+          "query": "SELECT mean(\"uptime\") AS \"uptime\" FROM \"telegraf\".\"autogen\".\"system\" WHERE time > :dashboardTime: AND \"host\"='telegraf-getting-started' GROUP BY time(:interval:) FILL(null)",
+          "queryConfig": {
+            "database": "telegraf",
+            "measurement": "system",
+            "retentionPolicy": "autogen",
+            "fields": [
+              {
+                "value": "mean",
+                "type": "func",
+                "alias": "uptime",
+                "args": [
+                  {
+                    "value": "uptime",
+                    "type": "field",
+                    "alias": ""
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "host": [
+                "telegraf-getting-started"
+              ]
+            },
+            "groupBy": {
+              "time": "auto",
+              "tags": []
+            },
+            "areTagsAccepted": true,
+            "fill": "null",
+            "rawText": null,
+            "range": null,
+            "shifts": null
+          },
+          "source": "/chronograf/v1/sources/10000",
+          "type": "influxql"
+        }
+      ],
+      "axes": {
+        "x": {
+          "bounds": [
+            "",
+            ""
+          ],
+          "label": "",
+          "prefix": "",
+          "suffix": "",
+          "base": "10",
+          "scale": "linear"
+        },
+        "y": {
+          "bounds": [
+            "",
+            ""
+          ],
+          "label": "sec",
+          "prefix": "",
+          "suffix": "",
+          "base": "10",
+          "scale": "linear"
+        },
+        "y2": {
+          "bounds": [
+            "",
+            ""
+          ],
+          "label": "",
+          "prefix": "",
+          "suffix": "",
+          "base": "",
+          "scale": ""
+        }
+      },
+      "type": "line",
+      "colors": [],
+      "legend": {},
+      "tableOptions": {
+        "verticalTimeAxis": false,
+        "sortBy": {
+          "internalName": "",
+          "displayName": "",
+          "visible": false
+        },
+        "wrapping": "",
+        "fixFirstColumn": false
+      },
+      "fieldOptions": null,
+      "timeFormat": "",
+      "decimalPlaces": {
+        "isEnforced": false,
+        "digits": 0
+      },
+      "note": "",
+      "noteVisibility": "default",
+      "links": {
+        "self": "/chronograf/v1/dashboards/2/cells/437a77e5-faa0-4fa9-8e92-7207d62fcd83"
+      }
+    },
+    {
+      "i": "844f4cad-f32b-42ef-81f8-d9f6dc52a2ee",
+      "x": 6,
+      "y": 8,
+      "w": 6,
+      "h": 4,
+      "name": "Load average",
+      "queries": [
+        {
+          "query": "SELECT mean(\"load1\") AS \"load1\", mean(\"load5\") AS \"load5\", mean(\"load15\") AS \"load15\" FROM \"telegraf\".\"autogen\".\"system\" WHERE time > :dashboardTime: AND \"host\"='telegraf-getting-started' GROUP BY time(:interval:) FILL(null)",
+          "queryConfig": {
+            "database": "telegraf",
+            "measurement": "system",
+            "retentionPolicy": "autogen",
+            "fields": [
+              {
+                "value": "mean",
+                "type": "func",
+                "alias": "load1",
+                "args": [
+                  {
+                    "value": "load1",
+                    "type": "field",
+                    "alias": ""
+                  }
+                ]
+              },
+              {
+                "value": "mean",
+                "type": "func",
+                "alias": "load5",
+                "args": [
+                  {
+                    "value": "load5",
+                    "type": "field",
+                    "alias": ""
+                  }
+                ]
+              },
+              {
+                "value": "mean",
+                "type": "func",
+                "alias": "load15",
+                "args": [
+                  {
+                    "value": "load15",
+                    "type": "field",
+                    "alias": ""
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "host": [
+                "telegraf-getting-started"
+              ]
+            },
+            "groupBy": {
+              "time": "auto",
+              "tags": []
+            },
+            "areTagsAccepted": true,
+            "fill": "null",
+            "rawText": null,
+            "range": null,
+            "shifts": null
+          },
+          "source": "/chronograf/v1/sources/10000",
+          "type": "influxql"
+        }
+      ],
+      "axes": {
+        "x": {
+          "bounds": [
+            "",
+            ""
+          ],
+          "label": "",
+          "prefix": "",
+          "suffix": "",
+          "base": "10",
+          "scale": "linear"
+        },
+        "y": {
+          "bounds": [
+            "",
+            ""
+          ],
+          "label": "",
+          "prefix": "",
+          "suffix": "",
+          "base": "10",
+          "scale": "linear"
+        },
+        "y2": {
+          "bounds": [
+            "",
+            ""
+          ],
+          "label": "",
+          "prefix": "",
+          "suffix": "",
+          "base": "",
+          "scale": ""
+        }
+      },
+      "type": "line",
+      "colors": [],
+      "legend": {},
+      "tableOptions": {
+        "verticalTimeAxis": false,
+        "sortBy": {
+          "internalName": "",
+          "displayName": "",
+          "visible": false
+        },
+        "wrapping": "",
+        "fixFirstColumn": false
+      },
+      "fieldOptions": null,
+      "timeFormat": "",
+      "decimalPlaces": {
+        "isEnforced": false,
+        "digits": 0
+      },
+      "note": "",
+      "noteVisibility": "default",
+      "links": {
+        "self": "/chronograf/v1/dashboards/2/cells/844f4cad-f32b-42ef-81f8-d9f6dc52a2ee"
+      }
+    }
+  ],
+  "templates": [],
+  "name": "Netology Host Overview",
+  "organization": "default",
+  "links": {
+    "self": "/chronograf/v1/dashboards/2",
+    "cells": "/chronograf/v1/dashboards/2/cells",
+    "templates": "/chronograf/v1/dashboards/2/templates"
+  }
+}

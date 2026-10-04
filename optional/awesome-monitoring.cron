@@ -1,0 +1,10 @@
+# Сбор метрик каждую минуту (задание *1)
+#
+# Вариант A — /etc/cron.d (нужен root, пишет в /var/log как требует ДЗ):
+#   sudo cp optional/awesome-monitoring.cron /etc/cron.d/awesome-monitoring
+#   sudo chmod 644 /etc/cron.d/awesome-monitoring
+#
+# Вариант B — пользовательский crontab (если нет прав на /var/log, смените LOG_DIR):
+#   * * * * * AWESOME_MONITORING_LOG_DIR=/var/log /usr/bin/python3 /ABS/PATH/optional/awesome-monitoring.py
+
+* * * * * root AWESOME_MONITORING_LOG_DIR=/var/log /usr/bin/python3 /home/drozd/devops/netology-monitoring/optional/awesome-monitoring.py
